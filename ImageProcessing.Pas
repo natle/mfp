@@ -3,44 +3,36 @@ Unit ImageProcessing;
 Interface
 
 type Proc = Procedure(var Bitmap: TBitmap; A,B,C,D: Word)
+	 TColorMap = array [1..3,1..3] of TColor;
 
-Procedure FImage (var Bitmap: TBitmap; PHeight,PWidth: Word; Determinant: Proc);
-Procedure ColorCenterDetectAndFill (var Bitmap: TBitmap; X1,X2,Y1,Y2: Word);
+Function BColor (var Bitmap: TBitmap; X1,Y1,Height,Width: Word): TColorMap;
+Procedure SetColorBlock (var Bitmap: TBitmap; ColorMap: TColorMap; X1,Y1,Height,Width: Word);
 
 Inplementation
 
-Procedure ColorCenterDetectAndFill (var Bitmap: TBitmap; X1,X2,Y1,Y2: Word);
+Function BColor (var Bitmap: TBitmap; X1,Y1,Height,Width: Word): TColorMap;
 var i,j: Word;
 begin
-	
-end;
-
-
-Procedure FImage(var Bitmap: TBitmap; PHeight,PWidth: Word; Determinant: Proc);
-var i,j,Height,Width,X1,X2,Y1,Y2: Word;
-begin
-	Height:=Bitmap.Height;
-	Width:=Bitmap.Width;
-	i:=1;
-	j:=1;
-	while Heigth>i*PHeight do
+	for i:=1 to 3 do
 	begin
-		while Width>j*PWidth do
+		for j:=1 to 3 do
 		begin
-			X1:=(j-1)*PWidth;
-			Y1:=(i-1)*PHeight;
-			X2:=X1+PWidth;
-			Y2:=Y2+PHeight;
-			Determinant(Bitmap,X1,X2,Y1,Y2);
+			BColor[i,j]:=Bitmap.Canvas.Pixels[X+(i-1)*Width+1,Y+(j-1)*Height+1];
 		end;
 	end;
-	X1:=(j-1)*PWidth;
-	Y1:=(i-1)*PHeight;
-	PHeight:=Height-(i-1)*PHeight;
-	PWidth:=Width-(j-1)*PWidth;
-	X2:=X1+PWidth;
-	Y2:=Y2+PHeight;
-	Determinant(Bitmap,X1,X2,Y1,Y2);
+end;
+
+Procedure SetColorBlock (var Bitmap: TBitmap; ColorMap: TColorMap; X1,Y1,Height,Width: Word);
+var i,j: Word;
+	L: Boolean;
+begin
+	L:=false;
+	for i:=1 to 3 do
+		for j:=1 to 3 do
+		begin
+		if (ColorMap[i,j]=ColorMap[2,2]) and (i<>2) and (j<>2) then L:=true;
+		end;
+	if L then Bitmap.FillRect(X1,Y1,X1+Height-1,Y1+Width-1);
 end;
 
 end.
