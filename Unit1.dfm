@@ -86,34 +86,34 @@ object Form1: TForm1
     ButtonHeight = 24
     ButtonWidth = 41
     Caption = 'ToolBar1'
-    Images = ImageList1
+    Images = ImageList
     TabOrder = 0
-    object ToolButton1: TToolButton
+    object OpenButton: TToolButton
       Left = 0
       Top = 2
       Hint = #1054#1090#1082#1088#1099#1090#1100
-      Caption = 'ToolButton1'
+      Caption = 'OpenButton'
       ImageIndex = 1
     end
-    object ToolButton3: TToolButton
+    object SaveButton: TToolButton
       Left = 41
       Top = 2
       Hint = #1057#1086#1093#1088#1072#1085#1080#1090#1100
-      Caption = 'ToolButton3'
+      Caption = 'SaveButton'
       ImageIndex = 3
     end
-    object ToolButton5: TToolButton
+    object SaveAsButton: TToolButton
       Left = 82
       Top = 2
       Hint = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1082#1072#1082'...'
-      Caption = 'ToolButton5'
+      Caption = 'SaveAsButton'
       ImageIndex = 2
     end
-    object ToolButton7: TToolButton
+    object PrintButton: TToolButton
       Left = 123
       Top = 2
       Hint = #1055#1077#1095#1072#1090#1100
-      Caption = 'ToolButton7'
+      Caption = 'PrintButton'
       ImageIndex = 4
     end
     object ToolButton2: TToolButton
@@ -167,21 +167,21 @@ object Form1: TForm1
       Style = tbsSeparator
     end
   end
-  object Edit1: TEdit
+  object WidthEdit: TEdit
     Left = 248
     Top = 8
     Width = 57
-    Height = 25
+    Height = 21
     TabOrder = 1
   end
-  object Edit2: TEdit
+  object HeightEdit: TEdit
     Left = 376
     Top = 8
     Width = 57
-    Height = 25
+    Height = 21
     TabOrder = 2
   end
-  object CheckBox1: TCheckBox
+  object ProportionButton: TCheckBox
     Left = 448
     Top = 8
     Width = 137
@@ -189,7 +189,7 @@ object Form1: TForm1
     Caption = #1057#1086#1093#1088#1072#1085#1077#1085#1080#1077' '#1087#1088#1086#1087#1086#1088#1094#1080#1081
     TabOrder = 3
   end
-  object ComboBox1: TComboBox
+  object ColorNumBox: TComboBox
     Left = 592
     Top = 8
     Width = 145
@@ -207,7 +207,7 @@ object Form1: TForm1
       '4'
       '2')
   end
-  object Edit3: TEdit
+  object CellWidth: TEdit
     Left = 750
     Top = 106
     Width = 57
@@ -215,7 +215,7 @@ object Form1: TForm1
     Anchors = [akRight, akBottom]
     TabOrder = 5
   end
-  object RadioGroup1: TRadioGroup
+  object ColorDetection: TRadioGroup
     Left = 743
     Top = 139
     Width = 145
@@ -229,16 +229,16 @@ object Form1: TForm1
       #1089#1088#1077#1076#1085#1077#1077' '#1079#1085#1072#1095#1077#1085#1080#1077)
     TabOrder = 6
   end
-  object Button2: TButton
+  object ApplyButton: TButton
     Left = 758
     Top = 442
     Width = 115
     Height = 41
     Anchors = [akRight, akBottom]
-    Caption = #1055#1088#1080#1085#1103#1090#1100
+    Caption = #1055#1088#1080#1084#1077#1085#1080#1090#1100' '#1080#1079#1084#1077#1085#1077#1085#1080#1103
     TabOrder = 7
   end
-  object Edit4: TEdit
+  object CellHeigth: TEdit
     Left = 830
     Top = 106
     Width = 57
@@ -246,7 +246,7 @@ object Form1: TForm1
     Anchors = [akRight, akBottom]
     TabOrder = 8
   end
-  object TrackBar1: TTrackBar
+  object Scale: TTrackBar
     Left = 744
     Top = 8
     Width = 150
@@ -255,11 +255,11 @@ object Form1: TForm1
     Position = 10
     TabOrder = 9
   end
-  object ImageList1: TImageList
-    Left = 8
+  object ImageList: TImageList
+    Left = 32
     Top = 40
     Bitmap = {
-      494C010108000900040010001000FFFFFFFFFF00FFFFFFFFFFFFFFFF424D3600
+      494C010108000900040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000003000000001002000000000000030
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -659,18 +659,19 @@ object Form1: TForm1
       C003C003FF00FF00E003E7F3FF008000E003E48300000000E003E11300003F3E
       E00384200000240000010050000009008000848000232101E007E10700010280
       E00FE42700002400E00FE10300230821E027E02100632161C073C03000C30883
-      9E799E79010701077EFE7EFE03FF03FF}
+      9E799E79010701077EFE7EFE03FF03FF00000000000000000000000000000000
+      000000000000}
   end
-  object OpenDialog1: TOpenDialog
-    Left = 48
+  object OpenDialog: TOpenDialog
+    Left = 96
     Top = 40
   end
-  object SaveDialog1: TSaveDialog
-    Left = 88
+  object SaveDialog: TSaveDialog
+    Left = 168
     Top = 40
   end
-  object PrintDialog1: TPrintDialog
-    Left = 128
+  object PrintDialog: TPrintDialog
+    Left = 248
     Top = 40
   end
 end
