@@ -22,6 +22,7 @@ var
   Form1: TForm1;
   b1:TBitmap;
 
+
 implementation
 
 {$R *.dfm}
@@ -40,7 +41,7 @@ type
   TRGB = record
     B, G, R: Byte;
   end;
-  pRGB = ^TRGB;
+  PRGB = ^TRGB;
 
 var
   i, j, x, y, xd, yd,
@@ -84,11 +85,14 @@ var g1:TGIFImage;
   i,j,k:integer;
 begin
   //img1.Picture.LoadFromFile('d:\Downloads\wallpaper.bmp');
-    b1:=tbitmap.Create;
-    b1.loadfromfile('d:\ddd.bmp');
-    b1.PixelFormat:=pf8bit;
-    pixelseffect(b1,8,8);
-    img1.Canvas.Draw(0,0,b1);
+    if dlgOpen.Execute then 
+    begin
+      b1:=tbitmap.Create;
+      b1.loadfromfile(dlgOpen.FileName);
+      b1.PixelFormat:=pf8bit;
+      pixelseffect(b1,8,8);
+      img1.Canvas.Draw(0,0,b1);
+    end;
 end;
 
 end.
