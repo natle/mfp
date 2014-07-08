@@ -11,12 +11,13 @@ object Form1: TForm1
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
   DesignSize = (
     898
     509)
   PixelsPerInch = 96
   TextHeight = 13
-  object Image1: TImage
+  object Image: TImage
     Left = 0
     Top = 33
     Width = 735
@@ -94,6 +95,7 @@ object Form1: TForm1
       Hint = #1054#1090#1082#1088#1099#1090#1100
       Caption = 'OpenButton'
       ImageIndex = 1
+      OnClick = OpenButtonClick
     end
     object SaveButton: TToolButton
       Left = 41
